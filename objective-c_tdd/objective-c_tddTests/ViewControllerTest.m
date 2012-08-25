@@ -14,6 +14,8 @@
 -(void)setUp
 {
     [super setUp];
+#pragma mark -
+#pragma mark UI setup
     vc = [[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
     view = [[UIView alloc]init];
     vc.view = view;
@@ -28,6 +30,15 @@
     fetchingDesc = [[UILabel alloc]init];
     fetchingDesc.text = @"Fetching next question...";
     vc.fetchingDesc = fetchingDesc;
+    question = [[UILabel alloc]init];
+    question.text = @"Question 1?";
+    vc.question = question;
+    answer = [[UITextField alloc]init];
+    vc.answer = answer;
+    nextQuestionBtn = [[UIButton alloc]init];
+    vc.nextQuestionBtn = nextQuestionBtn;
+    giveUpBtn = [[UIButton alloc]init];
+    vc.giveUpBtn = giveUpBtn;
 }
 
 -(void)tearDown
@@ -65,7 +76,7 @@
     STAssertEquals(vc.gameDesc.text, @"A simple game", @"should have the same description");
 }
 
--(void) testViewControllerHasFetchingQuestionsIndicator
+-(void) testViewControllerHasFetchingQuestionsIndicatorSection
 {
     objc_property_t pactivityIndicator = class_getProperty([vc class], "activityIndicator");
     STAssertTrue(pactivityIndicator != NULL, @"indicator should be there");
@@ -77,6 +88,30 @@
     STAssertNotNil(vc.fetchingDesc, @"should already initialized");
     STAssertTrue([vc.fetchingDesc isKindOfClass:[UILabel class]], @"should be a UILabel");
     STAssertEquals(vc.fetchingDesc.text, @"Fetching next question...", @"should have the same description");
+}
+
+-(void)testViewControllerHasQuestionsSection
+{
+    objc_property_t pquestion = class_getProperty([vc class], "question");
+    STAssertTrue(pquestion != NULL, @"should be there");
+    STAssertNotNil(vc.question, @"should already initialized");
+    STAssertTrue([vc.question isKindOfClass:[UILabel class]], @"should be a UILabel");
+    
+    objc_property_t panswer = class_getProperty([vc class], "answer");
+    STAssertTrue(panswer != NULL, @"should be there");
+    STAssertNotNil(vc.answer, @"should already initialized");
+    STAssertTrue([vc.answer isKindOfClass:[UITextField class]], @"should be a UITextField");
+    
+    objc_property_t pnextQuestion = class_getProperty([vc class], "nextQuestionBtn");
+    STAssertTrue(pnextQuestion != NULL, @"should be there");
+    STAssertNotNil(vc.nextQuestionBtn, @"should already initialized");
+    STAssertTrue([vc.nextQuestionBtn isKindOfClass:[UIButton class]], @"should be a UIButton");
+    
+    objc_property_t pgiveUp = class_getProperty([vc class], "giveUpBtn");
+    STAssertTrue(pgiveUp != NULL, @"should be there");
+    STAssertNotNil(vc.giveUpBtn, @"should already initialized");
+    STAssertTrue([vc.giveUpBtn isKindOfClass:[UIButton class]], @"should be a UIButton");
+
 }
 
 @end

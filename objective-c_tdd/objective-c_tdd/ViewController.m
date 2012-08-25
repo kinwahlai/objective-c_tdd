@@ -17,6 +17,10 @@
 @synthesize gameDesc;
 @synthesize activityIndicator;
 @synthesize fetchingDesc;
+@synthesize question;
+@synthesize nextQuestionBtn;
+@synthesize giveUpBtn;
+@synthesize answer;
 
 - (void)viewDidLoad
 {
@@ -30,6 +34,10 @@
     [self setGameDesc:nil];
     [self setActivityIndicator:nil];
     [self setFetchingDesc:nil];
+    [self setQuestion:nil];
+    [self setAnswer:nil];
+    [self setNextQuestionBtn:nil];
+    [self setGiveUpBtn:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

@@ -18,6 +18,10 @@
     UILabel *gameDesc;
     UIActivityIndicatorView *activityIndicator;
     UILabel *fetchingDesc;
+    UILabel *question;
+    UIButton *nextQuestionBtn;
+    UIButton *giveUpBtn;
+    UITextField *answer;
 }
 
 @end
