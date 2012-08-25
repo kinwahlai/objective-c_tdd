@@ -18,4 +18,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *nextQuestionBtn;
 @property (weak, nonatomic) IBOutlet UIButton *giveUpBtn;
 @property (weak, nonatomic) IBOutlet UITextField *answer;
+
+-(void)hideQuestionSection;
 @end

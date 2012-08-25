@@ -114,4 +114,13 @@
 
 }
 
+-(void)testViewControllerHideQuestionSectionInsideViewDidLoad
+{
+    STAssertNoThrow([vc viewDidLoad], @"should execute without exception");
+    STAssertTrue(vc.question.hidden, @"should be hidden");
+    STAssertTrue(vc.answer.hidden, @"should be hidden");
+    STAssertTrue(vc.nextQuestionBtn.hidden, @"should be hidden");
+    STAssertTrue(vc.giveUpBtn.hidden, @"should be hidden");
+}
+
 @end
