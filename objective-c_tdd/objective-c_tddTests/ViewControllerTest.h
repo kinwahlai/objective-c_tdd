@@ -15,6 +15,9 @@
     ViewController *vc;
     UIView *view;
     UILabel *gameTitle;
+    UILabel *gameDesc;
+    UIActivityIndicatorView *activityIndicator;
+    UILabel *fetchingDesc;
 }
 
 @end

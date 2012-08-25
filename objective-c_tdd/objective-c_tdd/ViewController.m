@@ -14,6 +14,9 @@
 
 @implementation ViewController
 @synthesize gameTitle;
+@synthesize gameDesc;
+@synthesize activityIndicator;
+@synthesize fetchingDesc;
 
 - (void)viewDidLoad
 {
@@ -24,6 +27,9 @@
 - (void)viewDidUnload
 {
     [self setGameTitle:nil];
+    [self setGameDesc:nil];
+    [self setActivityIndicator:nil];
+    [self setFetchingDesc:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

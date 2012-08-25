@@ -10,5 +10,8 @@
 
 @interface ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *gameTitle;
+@property (weak, nonatomic) IBOutlet UILabel *gameDesc;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UILabel *fetchingDesc;
 
 @end
