@@ -19,7 +19,7 @@
 		6F1E46B215DE30DE00C206AA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F1E469215DE30DD00C206AA /* UIKit.framework */; };
 		6F1E46B315DE30DE00C206AA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F1E469415DE30DD00C206AA /* Foundation.framework */; };
 		6F1E46BB15DE30DE00C206AA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F1E46B915DE30DE00C206AA /* InfoPlist.strings */; };
-		6F1E46BE15DE30DE00C206AA /* objective_c_tddTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1E46BD15DE30DE00C206AA /* objective_c_tddTests.m */; };
+		6FE0535815E883E10067162D /* ViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE0535715E883E10067162D /* ViewControllerTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +50,8 @@
 		6F1E46B015DE30DE00C206AA /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		6F1E46B815DE30DE00C206AA /* objective-c_tddTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "objective-c_tddTests-Info.plist"; sourceTree = "<group>"; };
 		6F1E46BA15DE30DE00C206AA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6F1E46BC15DE30DE00C206AA /* objective_c_tddTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = objective_c_tddTests.h; sourceTree = "<group>"; };
-		6F1E46BD15DE30DE00C206AA /* objective_c_tddTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = objective_c_tddTests.m; sourceTree = "<group>"; };
+		6FE0535615E883E10067162D /* ViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerTest.h; sourceTree = "<group>"; };
+		6FE0535715E883E10067162D /* ViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,9 +135,9 @@
 		6F1E46B615DE30DE00C206AA /* objective-c_tddTests */ = {
 			isa = PBXGroup;
 			children = (
-				6F1E46BC15DE30DE00C206AA /* objective_c_tddTests.h */,
-				6F1E46BD15DE30DE00C206AA /* objective_c_tddTests.m */,
 				6F1E46B715DE30DE00C206AA /* Supporting Files */,
+				6FE0535615E883E10067162D /* ViewControllerTest.h */,
+				6FE0535715E883E10067162D /* ViewControllerTest.m */,
 			);
 			path = "objective-c_tddTests";
 			sourceTree = "<group>";
@@ -268,7 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F1E46BE15DE30DE00C206AA /* objective_c_tddTests.m in Sources */,
+				6FE0535815E883E10067162D /* ViewControllerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +434,7 @@
 				6F1E46C315DE30DE00C206AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6F1E46C415DE30DE00C206AA /* Build configuration list for PBXNativeTarget "objective-c_tddTests" */ = {
 			isa = XCConfigurationList;
@@ -442,6 +443,7 @@
 				6F1E46C615DE30DE00C206AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

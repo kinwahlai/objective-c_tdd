@@ -13,6 +13,7 @@
 @end
 
 @implementation ViewController
+@synthesize gameTitle;
 
 - (void)viewDidLoad
 {
@@ -22,6 +23,7 @@
 
 - (void)viewDidUnload
 {
+    [self setGameTitle:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
