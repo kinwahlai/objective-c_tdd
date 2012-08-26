@@ -36,6 +36,8 @@
 		6FE053A815E8A0DB0067162D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE053A615E8A0D20067162D /* SystemConfiguration.framework */; };
 		6FE053AB15E8A0F10067162D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE053A915E8A0EA0067162D /* libz.dylib */; };
 		6FE053B715E9C7DA0067162D /* FakeASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE053B615E9C7DA0067162D /* FakeASIFormDataRequest.m */; };
+		6FE053C215E9CB470067162D /* QuestionAnswerBuilderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE053C115E9CB470067162D /* QuestionAnswerBuilderTest.m */; };
+		6FE053C515E9CC050067162D /* QuestionAnswerBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE053C415E9CC040067162D /* QuestionAnswerBuilder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,10 @@
 		6FE053A915E8A0EA0067162D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		6FE053B515E9C7DA0067162D /* FakeASIFormDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeASIFormDataRequest.h; sourceTree = "<group>"; };
 		6FE053B615E9C7DA0067162D /* FakeASIFormDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeASIFormDataRequest.m; sourceTree = "<group>"; };
+		6FE053C015E9CB470067162D /* QuestionAnswerBuilderTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionAnswerBuilderTest.h; sourceTree = "<group>"; };
+		6FE053C115E9CB470067162D /* QuestionAnswerBuilderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionAnswerBuilderTest.m; sourceTree = "<group>"; };
+		6FE053C315E9CC040067162D /* QuestionAnswerBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionAnswerBuilder.h; sourceTree = "<group>"; };
+		6FE053C415E9CC040067162D /* QuestionAnswerBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionAnswerBuilder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +182,8 @@
 				6F1E469915DE30DD00C206AA /* Supporting Files */,
 				6FE0536915E89CEC0067162D /* QuestionCommunicator.h */,
 				6FE0536A15E89CEC0067162D /* QuestionCommunicator.m */,
+				6FE053C315E9CC040067162D /* QuestionAnswerBuilder.h */,
+				6FE053C415E9CC040067162D /* QuestionAnswerBuilder.m */,
 			);
 			path = "objective-c_tdd";
 			sourceTree = "<group>";
@@ -200,6 +208,8 @@
 				6FE0535715E883E10067162D /* ViewControllerTest.m */,
 				6FE0536615E89BF10067162D /* QuestionCommunicatorTest.h */,
 				6FE0536715E89BF10067162D /* QuestionCommunicatorTest.m */,
+				6FE053C015E9CB470067162D /* QuestionAnswerBuilderTest.h */,
+				6FE053C115E9CB470067162D /* QuestionAnswerBuilderTest.m */,
 			);
 			path = "objective-c_tddTests";
 			sourceTree = "<group>";
@@ -387,6 +397,7 @@
 				6FE0539015E89F3A0067162D /* ASIInputStream.m in Sources */,
 				6FE0539115E89F3A0067162D /* ASINetworkQueue.m in Sources */,
 				6FE0539215E89F3A0067162D /* Reachability.m in Sources */,
+				6FE053C515E9CC050067162D /* QuestionAnswerBuilder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +408,7 @@
 				6FE0535815E883E10067162D /* ViewControllerTest.m in Sources */,
 				6FE0536815E89BF10067162D /* QuestionCommunicatorTest.m in Sources */,
 				6FE053B715E9C7DA0067162D /* FakeASIFormDataRequest.m in Sources */,
+				6FE053C215E9CB470067162D /* QuestionAnswerBuilderTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
