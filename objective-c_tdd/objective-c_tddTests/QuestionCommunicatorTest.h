@@ -7,15 +7,9 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-#import "ASIFormDataRequest.h"
 
 @class QuestionCommunicator;
-
-@interface FakeASIFormDataRequest : ASIFormDataRequest
-@property BOOL startAsynchronousCalled;
--(void)simulateSuccess;
--(void)simulateError;
-@end
+@class FakeASIFormDataRequest;
 
 @interface QuestionCommunicatorTest : SenTestCase
 {

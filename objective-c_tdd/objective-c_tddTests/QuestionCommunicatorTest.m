@@ -9,38 +9,25 @@
 #import "QuestionCommunicatorTest.h"
 #import "QuestionCommunicator.h"
 #import "objc/runtime.h"
-#import "ASIHTTPRequestDelegate.h"
+#import "FakeASIFormDataRequest.h"
 
-@implementation FakeASIFormDataRequest
+@interface FakeParserClass : NSObject
+-(void)processSuccess:(NSString*)response;
+-(void)processError:(NSError*)error;
+@end
 
--(void)startAsynchronous
+@implementation FakeParserClass
+
+-(void)processSuccess:(NSString*)response
 {
-    self.startAsynchronousCalled = YES;
+    
 }
 
--(void)simulateSuccess
+-(void)processError:(NSError*)error
 {
-    if (self.delegate) {
-        [self.delegate requestFinished:self];
-    }
+
 }
 
--(void)simulateError
-{
-    if (self.delegate) {
-        [self.delegate requestFailed:self];
-    }
-}
-
--(NSString *)responseString
-{
-    return @"{\"answer\": \"Lhotse\", \"question\": \"What is the forth highest mountain?\"}";
-}
-
--(NSError *)error
-{
-    return [[NSError alloc]initWithDomain:@"test" code:100 userInfo:nil];
-}
 @end
 
 @implementation QuestionCommunicatorTest
@@ -85,10 +72,12 @@
     fakeRequest.delegate = comm;
     [comm setSuccessBlock:^(NSString *response) {
         // TODO: is this correct?
-        STAssertNotNil(response, @"should not be nil");
+        FakeParserClass *pc = [[FakeParserClass alloc]init];
+        [pc processSuccess:response];
     }];
     [comm setErrorBlock:^(NSError *error) {
-        STAssertNotNil(error, @"should not be nil");
+        FakeParserClass *pc = [[FakeParserClass alloc]init];
+        [pc processError:error];
     }];
     
     STAssertNoThrow([fakeRequest simulateSuccess], @"should not throw exception");

@@ -35,6 +35,7 @@
 		6FE053A115E8A08B0067162D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE0539F15E8A0790067162D /* MobileCoreServices.framework */; };
 		6FE053A815E8A0DB0067162D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE053A615E8A0D20067162D /* SystemConfiguration.framework */; };
 		6FE053AB15E8A0F10067162D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE053A915E8A0EA0067162D /* libz.dylib */; };
+		6FE053B715E9C7DA0067162D /* FakeASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE053B615E9C7DA0067162D /* FakeASIFormDataRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,8 @@
 		6FE0539F15E8A0790067162D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		6FE053A615E8A0D20067162D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6FE053A915E8A0EA0067162D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		6FE053B515E9C7DA0067162D /* FakeASIFormDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeASIFormDataRequest.h; sourceTree = "<group>"; };
+		6FE053B615E9C7DA0067162D /* FakeASIFormDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeASIFormDataRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +194,7 @@
 		6F1E46B615DE30DE00C206AA /* objective-c_tddTests */ = {
 			isa = PBXGroup;
 			children = (
+				6FE053B415E9C7B20067162D /* Mock objects */,
 				6F1E46B715DE30DE00C206AA /* Supporting Files */,
 				6FE0535615E883E10067162D /* ViewControllerTest.h */,
 				6FE0535715E883E10067162D /* ViewControllerTest.m */,
@@ -252,6 +256,15 @@
 				6FE0538915E89F3A0067162D /* Reachability.m */,
 			);
 			path = Reachability;
+			sourceTree = "<group>";
+		};
+		6FE053B415E9C7B20067162D /* Mock objects */ = {
+			isa = PBXGroup;
+			children = (
+				6FE053B515E9C7DA0067162D /* FakeASIFormDataRequest.h */,
+				6FE053B615E9C7DA0067162D /* FakeASIFormDataRequest.m */,
+			);
+			name = "Mock objects";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,6 +396,7 @@
 			files = (
 				6FE0535815E883E10067162D /* ViewControllerTest.m in Sources */,
 				6FE0536815E89BF10067162D /* QuestionCommunicatorTest.m in Sources */,
+				6FE053B715E9C7DA0067162D /* FakeASIFormDataRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
