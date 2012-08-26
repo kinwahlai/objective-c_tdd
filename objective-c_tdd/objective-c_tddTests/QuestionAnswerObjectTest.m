@@ -14,6 +14,7 @@
 -(void)setUp
 {
     [super setUp];
+    qaobj = [[QuestionAnswerObject alloc]initWithQuestion:@"Question1" answer:@"Answer1"];
 }
 
 -(void)tearDown
@@ -31,7 +32,6 @@
 
 -(void)testQuestionAnswerObjectInitWithQuestionAndAnswer
 {
-    QuestionAnswerObject *qaobj = [[QuestionAnswerObject alloc]initWithQuestion:@"Question1" answer:@"Answer1"];
     STAssertNotNil(qaobj, @"should not be nil");
     STAssertEquals(qaobj.questionStr, @"Question1", @"should be the same");
     STAssertEquals(qaobj.answerStr, @"Answer1", @"should be the same");
@@ -39,7 +39,6 @@
 
 -(void)testQuestionAnswerObjectVerifyAnswerCaseInsensitive
 {
-    QuestionAnswerObject *qaobj = [[QuestionAnswerObject alloc]initWithQuestion:@"Question1" answer:@"Answer1"];
     STAssertTrue([qaobj verifyAnswer:@"aNsWEr1"], @"should verify success");
     STAssertFalse([qaobj verifyAnswer:@"aNsWEr111"], @"should verify failed");
     

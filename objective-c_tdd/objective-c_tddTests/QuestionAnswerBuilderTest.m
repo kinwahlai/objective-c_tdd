@@ -8,6 +8,7 @@
 
 #import "QuestionAnswerBuilderTest.h"
 #import "QuestionAnswerBuilder.h"
+#import "QuestionAnswerObject.h"
 
 @implementation QuestionAnswerBuilderTest
 -(void)setUp
@@ -33,7 +34,25 @@
     STAssertNotNil(error, @"should not be nil");
 }
 
+-(void)testBuilderParseCorrectJSONAndReturnValidObject
+{
+    NSString *validJSON = @"{\"answer\": \"Lhotse\", \"question\": \"What is the forth highest mountain?\"}";
+        NSError *error;
+    QuestionAnswerObject *expectedobj = [[QuestionAnswerObject alloc]initWithQuestion:@"What is the forth highest mountain?" answer:@"Lhotse"];
+    QuestionAnswerObject *qaobj = [builder questionAnswerFromJSON:validJSON error:&error];
+    STAssertNotNil(qaobj, @"should not be nil");
+    STAssertTrue([qaobj.questionStr isEqualToString:expectedobj.questionStr], @"should be the same");
+    STAssertTrue([qaobj.answerStr isEqualToString:expectedobj.answerStr], @"should be the same");
+}
 
+-(void)testBuilderParseValidJSONWithNoQuestion
+{
+    NSString *validJSON = @"{}";
+    NSError *error;
+    STAssertNoThrow([builder questionAnswerFromJSON:validJSON error:&error], @"should throw exception");
+    STAssertNotNil(error, @"should not be nil");
+
+}
 
 
 @end

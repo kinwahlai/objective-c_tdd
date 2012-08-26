@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class QuestionAnswerObject;
+
 @interface QuestionAnswerBuilder : NSObject
--(void)questionAnswerFromJSON:(NSString*)jsonString error:(NSError **)error;
+-(QuestionAnswerObject *)questionAnswerFromJSON:(NSString*)jsonString error:(NSError **)error;
 @end
