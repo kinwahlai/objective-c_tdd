@@ -42,6 +42,14 @@
     vc.nextQuestionBtn = nextQuestionBtn;
     giveUpBtn = [[UIButton alloc]init];
     vc.giveUpBtn = giveUpBtn;
+    
+    comm = [[FakeQuestionCommunicator alloc]init];
+    vc.communicator = comm;
+    
+    request = (FakeASIFormDataRequest*)comm.formDataRequest;
+    
+    STAssertNoThrow([vc fetchQuestion], @"should execute without exception");
+    [request simulateSuccess];
 }
 
 -(void)tearDown
@@ -164,15 +172,26 @@
 
 -(void)testViewControllerFetchQuestionInsideViewDidLoad
 {
-    FakeQuestionCommunicator *comm = [[FakeQuestionCommunicator alloc]init];
-    vc.communicator = comm;
-    STAssertNoThrow([vc fetchQuestion], @"should execute without exception");
-    
-    FakeASIFormDataRequest *request = (FakeASIFormDataRequest*)comm.formDataRequest;
-    [request simulateSuccess];
     STAssertNotNil(vc.qaObject, @"should not be nil");
     STAssertTrue([vc.question.text isEqualToString:vc.qaObject.questionStr],@"should be true");
     STAssertFalse(vc.question.hidden, @"should not be hidden");
+}
+
+-(void)testIGiveUpAndFetchNewQuestion
+{
+    STAssertNoThrow([vc iGiveUp:nil], @"should execute without exception");
+    STAssertTrue(vc.question.hidden, @"should not be hidden");
+    [request simulateSuccess];
+    STAssertNotNil(vc.qaObject, @"should not be nil");
+    STAssertTrue([vc.question.text isEqualToString:vc.qaObject.questionStr],@"should be true");
+    STAssertTrue([vc.answer.text isEqualToString:@""], @"should not be hidden");
+}
+
+-(void)testEnterCorrectAnswer
+{
+    vc.answer.text = @"Lhotse";
+    STAssertNoThrow([vc answerQuestion:nil], @"should execute without exception");
+    STAssertTrue([vc.answer.text isEqualToString:@""], @"should not be hidden");
 }
 
 @end

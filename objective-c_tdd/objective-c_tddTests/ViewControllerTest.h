@@ -9,6 +9,8 @@
 #import <SenTestingKit/SenTestingKit.h>
 
 @class ViewController;
+@class FakeQuestionCommunicator;
+@class FakeASIFormDataRequest;
 
 @interface ViewControllerTest : SenTestCase
 {
@@ -22,6 +24,8 @@
     UIButton *nextQuestionBtn;
     UIButton *giveUpBtn;
     UITextField *answer;
+    FakeQuestionCommunicator *comm;
+    FakeASIFormDataRequest *request;
 }
 
 @end

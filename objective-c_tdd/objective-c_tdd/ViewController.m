@@ -71,7 +71,14 @@
         }
     }];
     [self.communicator setErrorBlock:^(NSError *__autoreleasing error) {
-        
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"Error"
+                              message:[error localizedDescription]
+                              delegate: nil
+                              cancelButtonTitle: @"OK"
+                              otherButtonTitles:nil, nil];
+        alert.tag = 1;
+        [alert show];
     }];
     [self.communicator startAsynchronous];
 }
@@ -110,4 +117,24 @@
     self.fetchingDesc.hidden = NO;
     [self.activityIndicator startAnimating];
 }
+
+- (IBAction)answerQuestion:(id)sender
+{
+    if ([self.qaObject verifyAnswer:self.answer.text]) {
+        self.answer.text = @"";
+        self.communicator = nil;
+        self.communicator = [[QuestionCommunicator alloc]init];
+        [self fetchQuestion];
+    }
+}
+
+- (IBAction)iGiveUp:(id)sender
+{
+    self.answer.text = @"";
+    self.communicator = nil;
+    self.communicator = [[QuestionCommunicator alloc]init];
+    [self fetchQuestion];
+}
+
+
 @end

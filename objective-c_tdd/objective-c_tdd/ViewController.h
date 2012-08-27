@@ -30,4 +30,7 @@
 -(void)hideActivityIndicatorSection;
 -(void)showActivityIndicatorSection;
 -(void)fetchQuestion;
+
+- (IBAction)answerQuestion:(id)sender;
+- (IBAction)iGiveUp:(id)sender;
 @end
