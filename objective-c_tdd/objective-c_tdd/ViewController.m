@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "QuestionCommunicator.h"
 #import "QuestionAnswerBuilder.h"
+#import "QuestionAnswerObject.h"
 
 @interface ViewController ()
 
@@ -36,7 +37,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self hideQuestionSection];
     [self fetchQuestion];
 }
 
@@ -56,12 +56,18 @@
 
 -(void)fetchQuestion
 {
+    [self showActivityIndicatorSection];
+    [self hideQuestionSection];
+    
+    __weak id myself = self;
     [self.communicator setSuccessBlock:^(NSString *__autoreleasing responseString) {
         NSError *error;
         QuestionAnswerBuilder *builder = [[QuestionAnswerBuilder alloc]init];
         self.qaObject = [builder questionAnswerFromJSON:responseString error:&error];
         if (!error && self.qaObject != nil) {
-            
+            self.question.text = self.qaObject.questionStr;
+            [myself showQuestionSection];
+            [myself hideActivityIndicatorSection];
         }
     }];
     [self.communicator setErrorBlock:^(NSError *__autoreleasing error) {
@@ -81,5 +87,27 @@
     self.answer.hidden = YES;
     self.nextQuestionBtn.hidden = YES;
     self.giveUpBtn.hidden = YES;
+}
+
+-(void)showQuestionSection
+{
+    self.question.hidden = NO;
+    self.answer.hidden = NO;
+    self.nextQuestionBtn.hidden = NO;
+    self.giveUpBtn.hidden = NO;
+}
+
+-(void)hideActivityIndicatorSection
+{
+    [self.activityIndicator stopAnimating];
+    self.activityIndicator.hidden = YES;
+    self.fetchingDesc.hidden = YES;
+}
+
+-(void)showActivityIndicatorSection
+{
+    self.activityIndicator.hidden = NO;
+    self.fetchingDesc.hidden = NO;
+    [self.activityIndicator startAnimating];
 }
 @end

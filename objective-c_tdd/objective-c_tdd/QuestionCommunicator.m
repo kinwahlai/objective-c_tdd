@@ -7,14 +7,14 @@
 //
 
 #import "QuestionCommunicator.h"
-#import "ASIFormDataRequest.h"
+#import "ASIHTTPRequest.h"
 
 @implementation QuestionCommunicator
 - (id)init
 {
     self = [super init];
     if (self) {
-        self.formDataRequest = [[ASIFormDataRequest alloc]initWithURL:[NSURL URLWithString:@"http://localhost:8080"]];
+        self.formDataRequest = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:@"http://localhost:8080"]];
         self.formDataRequest.delegate = self;
     }
     return self;

@@ -11,6 +11,7 @@
 #import "ViewController.h"
 #import "FakeQuestionCommunicator.h"
 #import "FakeASIFormDataRequest.h"
+#import "QuestionAnswerObject.h"
 
 @implementation ViewControllerTest
 -(void)setUp
@@ -125,6 +126,31 @@
     STAssertTrue(vc.giveUpBtn.hidden, @"should be hidden");
 }
 
+-(void)testViewControllerShowQuestionSection
+{
+    STAssertNoThrow([vc showQuestionSection], @"should execute without exception");
+    STAssertFalse(vc.question.hidden, @"should be hidden");
+    STAssertFalse(vc.answer.hidden, @"should be hidden");
+    STAssertFalse(vc.nextQuestionBtn.hidden, @"should be hidden");
+    STAssertFalse(vc.giveUpBtn.hidden, @"should be hidden");
+}
+
+-(void)testViewControllerHideActivityIndicatorSection
+{
+    STAssertNoThrow([vc hideActivityIndicatorSection], @"should execute without exception");
+    STAssertTrue(vc.activityIndicator.hidden, @"should be hidden");
+    STAssertTrue(vc.fetchingDesc.hidden, @"should be hidden");
+    STAssertFalse([vc.activityIndicator isAnimating], @"should start animating");
+}
+
+-(void)testViewControllerShowActivityIndicatorSection
+{
+    STAssertNoThrow([vc showActivityIndicatorSection], @"should execute without exception");
+    STAssertFalse(vc.activityIndicator.hidden, @"should be hidden");
+    STAssertFalse(vc.fetchingDesc.hidden, @"should be hidden");
+    STAssertTrue([vc.activityIndicator isAnimating], @"should start animating");
+}
+
 -(void) testViewControllerHasCommunicator
 {
     objc_property_t pcommunicator = class_getProperty([vc class], "communicator");
@@ -140,10 +166,13 @@
 {
     FakeQuestionCommunicator *comm = [[FakeQuestionCommunicator alloc]init];
     vc.communicator = comm;
-    STAssertNoThrow([vc viewDidLoad], @"should execute without exception");
+    STAssertNoThrow([vc fetchQuestion], @"should execute without exception");
+    
     FakeASIFormDataRequest *request = (FakeASIFormDataRequest*)comm.formDataRequest;
     [request simulateSuccess];
     STAssertNotNil(vc.qaObject, @"should not be nil");
+    STAssertTrue([vc.question.text isEqualToString:vc.qaObject.questionStr],@"should be true");
+    STAssertFalse(vc.question.hidden, @"should not be hidden");
 }
 
 @end

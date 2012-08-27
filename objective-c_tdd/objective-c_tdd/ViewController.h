@@ -25,6 +25,9 @@
 @property QuestionCommunicator *communicator;
 @property QuestionAnswerObject *qaObject;
 
+-(void)showQuestionSection;
 -(void)hideQuestionSection;
+-(void)hideActivityIndicatorSection;
+-(void)showActivityIndicatorSection;
 -(void)fetchQuestion;
 @end

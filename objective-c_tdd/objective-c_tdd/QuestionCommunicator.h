@@ -12,14 +12,14 @@
 typedef void (^errorHandler)(__autoreleasing NSError *);
 typedef void (^successHandler)(__autoreleasing NSString *);
 
-@class ASIFormDataRequest;
+@class ASIHTTPRequest;
 
 @interface QuestionCommunicator : NSObject <ASIHTTPRequestDelegate>
 {
     successHandler delegateSuccessHandler;
     errorHandler delegateErrorHandler;
 }
-@property ASIFormDataRequest *formDataRequest;
+@property ASIHTTPRequest *formDataRequest;
 -(void)setSuccessBlock:(successHandler)successBlock;
 -(void)setErrorBlock:(errorHandler)errorBlock;
 -(void)startAsynchronous;
