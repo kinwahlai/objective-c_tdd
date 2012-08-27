@@ -19,6 +19,7 @@
 		6F1E46B215DE30DE00C206AA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F1E469215DE30DD00C206AA /* UIKit.framework */; };
 		6F1E46B315DE30DE00C206AA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F1E469415DE30DD00C206AA /* Foundation.framework */; };
 		6F1E46BB15DE30DE00C206AA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F1E46B915DE30DE00C206AA /* InfoPlist.strings */; };
+		6F8BF95B15EB180F0097FEB5 /* FakeQuestionCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8BF95A15EB180F0097FEB5 /* FakeQuestionCommunicator.m */; };
 		6FE0535815E883E10067162D /* ViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE0535715E883E10067162D /* ViewControllerTest.m */; };
 		6FE0536815E89BF10067162D /* QuestionCommunicatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE0536715E89BF10067162D /* QuestionCommunicatorTest.m */; };
 		6FE0536B15E89CEC0067162D /* QuestionCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE0536A15E89CEC0067162D /* QuestionCommunicator.m */; };
@@ -70,6 +71,8 @@
 		6F1E46B015DE30DE00C206AA /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		6F1E46B815DE30DE00C206AA /* objective-c_tddTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "objective-c_tddTests-Info.plist"; sourceTree = "<group>"; };
 		6F1E46BA15DE30DE00C206AA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6F8BF95915EB180F0097FEB5 /* FakeQuestionCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeQuestionCommunicator.h; sourceTree = "<group>"; };
+		6F8BF95A15EB180F0097FEB5 /* FakeQuestionCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeQuestionCommunicator.m; sourceTree = "<group>"; };
 		6FE0535615E883E10067162D /* ViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerTest.h; sourceTree = "<group>"; };
 		6FE0535715E883E10067162D /* ViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerTest.m; sourceTree = "<group>"; };
 		6FE0536615E89BF10067162D /* QuestionCommunicatorTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionCommunicatorTest.h; sourceTree = "<group>"; };
@@ -283,6 +286,8 @@
 			children = (
 				6FE053B515E9C7DA0067162D /* FakeASIFormDataRequest.h */,
 				6FE053B615E9C7DA0067162D /* FakeASIFormDataRequest.m */,
+				6F8BF95915EB180F0097FEB5 /* FakeQuestionCommunicator.h */,
+				6F8BF95A15EB180F0097FEB5 /* FakeQuestionCommunicator.m */,
 			);
 			name = "Mock objects";
 			sourceTree = "<group>";
@@ -421,6 +426,7 @@
 				6FE053B715E9C7DA0067162D /* FakeASIFormDataRequest.m in Sources */,
 				6FE053C215E9CB470067162D /* QuestionAnswerBuilderTest.m in Sources */,
 				6FE053D815E9E1A90067162D /* QuestionAnswerObjectTest.m in Sources */,
+				6F8BF95B15EB180F0097FEB5 /* FakeQuestionCommunicator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

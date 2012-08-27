@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class QuestionCommunicator;
+@class QuestionAnswerObject;
+
 @interface ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *gameTitle;
 @property (weak, nonatomic) IBOutlet UILabel *gameDesc;
@@ -19,5 +22,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *giveUpBtn;
 @property (weak, nonatomic) IBOutlet UITextField *answer;
 
+@property QuestionCommunicator *communicator;
+@property QuestionAnswerObject *qaObject;
+
 -(void)hideQuestionSection;
+-(void)fetchQuestion;
 @end

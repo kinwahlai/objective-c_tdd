@@ -9,6 +9,8 @@
 #import "ViewControllerTest.h"
 #import "objc/runtime.h"
 #import "ViewController.h"
+#import "FakeQuestionCommunicator.h"
+#import "FakeASIFormDataRequest.h"
 
 @implementation ViewControllerTest
 -(void)setUp
@@ -121,6 +123,27 @@
     STAssertTrue(vc.answer.hidden, @"should be hidden");
     STAssertTrue(vc.nextQuestionBtn.hidden, @"should be hidden");
     STAssertTrue(vc.giveUpBtn.hidden, @"should be hidden");
+}
+
+-(void) testViewControllerHasCommunicator
+{
+    objc_property_t pcommunicator = class_getProperty([vc class], "communicator");
+    STAssertTrue(pcommunicator != NULL, @"communicator should be there");
+}
+
+-(void)testViewControllerCreateCommunicatorInsideInit
+{
+    STAssertNotNil(vc.communicator, @"should not be nil");
+}
+
+-(void)testViewControllerFetchQuestionInsideViewDidLoad
+{
+    FakeQuestionCommunicator *comm = [[FakeQuestionCommunicator alloc]init];
+    vc.communicator = comm;
+    STAssertNoThrow([vc viewDidLoad], @"should execute without exception");
+    FakeASIFormDataRequest *request = (FakeASIFormDataRequest*)comm.formDataRequest;
+    [request simulateSuccess];
+    STAssertNotNil(vc.qaObject, @"should not be nil");
 }
 
 @end

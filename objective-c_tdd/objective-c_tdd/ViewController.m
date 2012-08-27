@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "QuestionCommunicator.h"
+#import "QuestionAnswerBuilder.h"
 
 @interface ViewController ()
 
@@ -26,7 +28,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+        self.communicator = [[QuestionCommunicator alloc]init];
     }
     return self;
 }
@@ -35,6 +37,7 @@
 {
     [super viewDidLoad];
     [self hideQuestionSection];
+    [self fetchQuestion];
 }
 
 - (void)viewDidUnload
@@ -49,6 +52,22 @@
     [self setGiveUpBtn:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+
+-(void)fetchQuestion
+{
+    [self.communicator setSuccessBlock:^(NSString *__autoreleasing responseString) {
+        NSError *error;
+        QuestionAnswerBuilder *builder = [[QuestionAnswerBuilder alloc]init];
+        self.qaObject = [builder questionAnswerFromJSON:responseString error:&error];
+        if (!error && self.qaObject != nil) {
+            
+        }
+    }];
+    [self.communicator setErrorBlock:^(NSError *__autoreleasing error) {
+        
+    }];
+    [self.communicator startAsynchronous];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
